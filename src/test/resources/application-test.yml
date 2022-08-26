@@ -1,0 +1,52 @@
+#spring:
+#    jpa:
+#        hibernate:
+#            ddl-auto: update
+#        defer-datasource-initialization: true
+#
+#    datasource:
+#        driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+#        url: jdbc:tc:mysql:///study-test
+
+spring:
+    jpa:
+        hibernate:
+            ddl-auto: create-drop
+        properties:
+            hibernate:
+                format_sql: true
+                show_sql: true
+
+    h2:
+        console:
+            enabled: true
+
+    datasource:
+        url: jdbc:h2:mem:testdb
+        driverClassName: org.h2.Driver
+        username: sa
+        password:
+
+    mvc:
+        pathmatch:
+            matching-strategy: ant_path_matcher
+        hiddenmethod:
+            filter:
+                enabled: true
+
+logging:
+    level:
+        org:
+            hibernate:
+                SQL: DEBUG
+                type:
+                    descriptor:
+                        sql:
+                            BasicBinder: TRACE
+
+server:
+    tomcat:
+        max-http-form-post-size: 5MB
+
+app:
+    host: http://localhost:8080

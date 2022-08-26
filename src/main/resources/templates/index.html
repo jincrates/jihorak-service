@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments.html :: head"></head>
+<body class="bg-light">
+    <nav th:replace="fragments.html :: main-nav"></nav>
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1>지호락</h1>
+            <p class="lead text-muted">
+                <i>知之者不如好之者 好之者不如樂之者<br/>
+                <small class="font-weight-light">(지지자불여호지자 호지자불여락지자)</small></i>
+                <br/><br/>
+                아는 사람은 그것을 좋아하는 사람만 못하고,<br/>
+                좋아하는 사람은 즐기는 사람만 못하다.
+                <br/><br/>
+                태그와 지역 기반으로 스터디를 찾고 참여하세요.<br/>
+                스터디 모임 관리 기능을 제공합니다.
+            </p>
+            <p>
+                <a th:href="@{/sign-up}" class="btn btn-primary my-2">회원 가입</a>
+            </p>
+        </div>
+    </section>
+    <div class="container">
+        <div class="row justify-content-center pt-3">
+            <div th:replace="fragments.html :: study-list (studyList=${studyList})"></div>
+        </div>
+    </div>
+    <footer th:replace="fragments.html :: footer"></footer>
+    <div th:replace="fragments.html :: date-time"></div>
+</body>
+</html>
